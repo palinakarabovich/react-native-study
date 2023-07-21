@@ -15,8 +15,12 @@ export default function App() {
   const [todoData, setTodoData] = React.useState(toDoList);
   const [inputValue, setInputValue] = React.useState('');
 
-  const handleAddToList = (todo: ITodo) =>{
-    console.log(todo)
+  const handleAddToList = (todo: string) =>{
+    const todoObject = {
+      text: todo,
+      id: todoData.length + 1
+    }
+    setTodoData([...todoData, todoObject])
   }
 
   return (

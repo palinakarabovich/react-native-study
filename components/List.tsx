@@ -9,7 +9,7 @@ interface IList {
 }
 
 
-const List: React.FC<IList> = ({data}) => {
+const List: React.FC<IList> = ({ data }) => {
   return (
     <View style={styles.container}>
       <FlatList
@@ -25,6 +25,6 @@ export default List;
 
 const styles = StyleSheet.create({
   container: {
-    padding: 20
-  }
+    padding: 20,
+  },
 })

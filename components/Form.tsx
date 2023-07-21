@@ -4,21 +4,29 @@ import { ITodo } from "../App";
 
 interface IForm {
   value: string,
-  add: (arg: ITodo) => void,
+  add: (arg: string) => void,
   setValue: React.Dispatch<React.SetStateAction<string>>
 }
 
 const Form: React.FC<IForm> = ({value, add, setValue}) => {
 
-  
+  const handlePress = () => {
+    add(value);
+    setValue('');
+  }
+
+
   return(
     <View style={styles.container}>
       <TextInput 
       style={styles.input}
+      value={value}
+      onChangeText={setValue}
       />
       <Button
         color={'#736B60'}
         title={'add'}
+        onPress={handlePress}
       />
     </View>
   )
