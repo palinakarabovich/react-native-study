@@ -1,13 +1,19 @@
 import { FlatList, StyleSheet, View } from "react-native"
 import { toDoList } from "../assets/mockData"
 import ListItem from "./ListItem";
+import React from "react";
+import { ITodo } from "../App";
+
+interface IList {
+  data: Array<ITodo>
+}
 
 
-const List = () => {
+const List: React.FC<IList> = ({data}) => {
   return (
     <View style={styles.container}>
       <FlatList
-        data={toDoList}
+        data={data}
         renderItem={({ item }) => <ListItem text={item.text} />}
         keyExtractor={(item) => item.id.toString()}
       />
@@ -19,9 +25,6 @@ export default List;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     padding: 20
   }
 })
