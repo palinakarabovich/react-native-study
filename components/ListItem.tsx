@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
   },
   image: {
     flex: 1,
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   icon: {
     width: 30,
