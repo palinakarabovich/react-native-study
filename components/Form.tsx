@@ -27,6 +27,7 @@ const Form: React.FC<IForm> = ({value, add, setValue}) => {
         color={'#736B60'}
         title={'add'}
         onPress={handlePress}
+        disabled={value === '' ? true : false}
       />
     </View>
   )

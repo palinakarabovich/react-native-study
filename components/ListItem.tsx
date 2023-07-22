@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Text, TouchableWithoutFeedback, ImageBackground } from "react-native"
+import { StyleSheet, View, Text, TouchableWithoutFeedback, ImageBackground, Alert, TouchableHighlight } from "react-native"
 
 interface IListItem {
   text: string,
@@ -7,14 +7,18 @@ interface IListItem {
 
 const ListItem: React.FC<IListItem> = ({ text }) => {
 
+  const handleTouch = () => {
+    setClicked(!isClicked);
+  }
+
   const [isClicked, setClicked] = React.useState(false);
 
   return (
-    <TouchableWithoutFeedback onPress={() => setClicked(!isClicked)}>
+    <TouchableWithoutFeedback onPress={handleTouch}>
       <View style={styles.item}>
         <View style={styles.icon}>
           {isClicked &&
-          <ImageBackground source={{uri: 'https://www.svgrepo.com/download/80301/cross.svg'}} resizeMode="cover" style={styles.image} />}
+          <ImageBackground source={require('../assets/favicon.png')} resizeMode="cover" style={styles.image} />}
         </View>
         <Text>{text}</Text>
       </View>
